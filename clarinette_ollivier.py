@@ -16,6 +16,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io.wavfile import write
 import os
+from time import time
+from numba import njit
 
 # PARAMETRES PHYSIQUES ET VARIABLES
 
@@ -34,9 +36,9 @@ H = 10**(-3)           # ouverture d'anche au repos (m)
 w = 1.3*10**(-2)       # largeur du canal d'anche (m)
 P_M = 10*10**3         # pression de plaquage (Pa)
 Ks = P_M / H           # raideur anche (Pa/m)
-gamma = 0.42           # pression dans la bouche adimensionnée
+gamma = 0.42           # pression dans la bouche adimensionnée --> entre 1/3 et 1/2
 P_m = gamma * P_M      # pression dans la bouche (Pa)
-zeta = 0.6             # paramètre d'ouverture d'anche adimensionné
+zeta = 0.6             # paramètre d'ouverture d'anche adimensionné --> entre 0.2 et 0.6
 U_A = w*H*np.sqrt(2/rho*P_M)
 Zc = zeta*P_M/U_A      # impédance caractéristique (kg/s)
 S = rho*c/Zc           # section du résonateur (m^2)
@@ -52,6 +54,7 @@ delta_t = T/128         # pas de temps (s)
 # FONCTIONS
 
 # Fonction de réflexion 
+@njit
 def reflexion(t, width_T=0.1, T=T):
     """
     Fonction de réflexion r(t), de la forme gaussienne :
@@ -75,6 +78,7 @@ def reflexion(t, width_T=0.1, T=T):
     
     
 # Caractéristique non-linéaire
+@njit
 def F(P, gamma=gamma, zeta=zeta, P_M=P_M, Zc=Zc):
     """
     Caractéristique non-linéaire F telle que u = F(P_m-p)
@@ -98,7 +102,7 @@ def F(P, gamma=gamma, zeta=zeta, P_M=P_M, Zc=Zc):
     U = u*P_M/Zc # débit dimensionné
     return U
 
-
+@njit
 def func_dicho(P, params):
     """
     Fonction dont on veut trouver le zéro par dichotomie
@@ -111,8 +115,8 @@ def func_dicho(P, params):
     qh, Zc = params[0], params[1]
     return F(P) - 1/Zc*(P-qh)
 
-
-def dichotomie(func, params, a, b, tol=1e-9):
+@njit
+def dichotomie(func, params, a, b, n, tol=1e-9):
     """ 
     Trouver l'abcisse m tel que func(m) = 0 par dichotomie
     
@@ -147,45 +151,64 @@ def dichotomie(func, params, a, b, tol=1e-9):
     
 
 # BOUCLE TEMPORELLE
+@njit
+def execution(T_sec, delta_t):
 
-time = np.arange(start=0, stop=T_sec, step=delta_t)
-N = len(time)
-
-# Initialisation
-U, P, qh = np.zeros(N), np.zeros(N), np.zeros(N)
-r = reflexion(time)
-# print(np.trapz(r,dx=delta_t))
-
-# Boucle
-for n in range(1,N):
-
-    # calcul de qh à l'instant t
-    P_reverse = P[:n][::-1]
-    U_reverse = U[:n][::-1]
-    qh[n] = np.sum(r[:n] * (P_reverse + Zc*U_reverse)) * delta_t
+    temps = np.arange(0, T_sec, delta_t)
+    N = len(temps)
     
+    # Initialisation
+    U, P, qh = np.zeros(N), np.zeros(N), np.zeros(N)
     
-    # calcul de q et f à l'instant t
-    # trouver l'intersection entre la courbe F(P) et la droite U = 1/Zc*(P-qh) par dichotomie
-    P[n] = dichotomie(func_dicho, [qh[n],Zc], -P_M, P_M)
-    U[n] = F(P[n])
+    # Calcul des fonctions de réflexion 
+    Lwin = int(5 * T / delta_t)
+    t_win = np.arange(0, Lwin) * delta_t
+    r = reflexion(t_win)
+    r_reverse = r[::-1].copy()
+    
+    # Initialisation du buffer circulaire 
+    outgoing_hist = np.zeros(Lwin)
+    
+    # Boucle
+    for n in range(1,N):
+    
+        # calcul de qh à l'instant t
+        qh[n] = np.dot(r_reverse, outgoing_hist) * delta_t
+        
+        # calcul de q et f à l'instant t
+        # trouver l'intersection entre la courbe F(P) et la droite U = 1/Zc*(P-qh) par dichotomie
+        P[n] = dichotomie(func_dicho, [qh[n],Zc], -P_M, P_M, n)
+        U[n] = F(P[n])
+        
+    
+        # Mise à jour du buffer circulaire (rotation + ajout)
+        w_new = P[n] + Zc * U[n]
+        # Rotation des buffers 
+        outgoing_hist[:-1] = outgoing_hist[1:]
+        outgoing_hist[-1] = w_new
+        
+    return temps, U, P, qh, r
 
+start = time()
+temps, U, P, qh, r = execution(T_sec, delta_t)
+stop = time()
+print("Temps d'exécution (s) :", stop-start)
     
 # AFFICHAGE
 
 plt.figure()
 plt.subplot(311)
-plt.plot(time,P)
-plt.ylabel(r"$P$")
+plt.plot(temps,P)
+plt.ylabel(r"$P$ (Pa)")
 plt.grid()
 
 plt.subplot(312)
-plt.plot(time,U)
-plt.ylabel(r"$U$")
+plt.plot(temps,U)
+plt.ylabel(r"$U$ (m$^3$/s)")
 plt.grid()
 
 plt.subplot(313)
-plt.plot(time,qh)
+plt.plot(temps,qh)
 plt.xlabel(r"Temps $t$ (s)")
 plt.ylabel(r"$q_h$")
 plt.grid()
@@ -211,6 +234,15 @@ plt.grid()
 plt.title("Grandeurs dimensionnées")
 plt.xlim(-10000,8000)
 plt.ylim(-0.4*P_M/Zc,0.4*P_M/Zc)
+
+
+refl = reflexion(temps)
+plt.figure()
+plt.plot(temps,refl)
+plt.xlabel(r"Temps $t$ (s)")
+plt.ylabel(r"$r(t)$")
+plt.title("Fonction de réflexion")
+plt.grid()
 
 # plt.figure()
 # plt.plot(pvals,uvals)
