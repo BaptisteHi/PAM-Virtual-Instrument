@@ -431,7 +431,7 @@ def execution(T_sec, delta_t):
         if n % 1000 == 0:
             print(f"Echantillon {n}/{N}")
     
-    return temps, t_L, t_R, f, q, q_iL, q_iR, r_L, r_R
+    return temps, f, q, q_iL, q_iR
  
     
 start = time()
@@ -441,7 +441,7 @@ f_vals = F(q_vals)
 q_min = q_vals[np.argmin(np.abs(f_vals-0.01*np.max(f_vals)))]
 
 
-temps, t_L, t_R, f, q, q_iL, q_iR, r_L, r_R = execution(T_sec, delta_t)
+temps, f, q, q_iL, q_iR = execution(T_sec, delta_t)
 stop = time()
 print("Temps d'exécution (s) :", stop-start)
     
