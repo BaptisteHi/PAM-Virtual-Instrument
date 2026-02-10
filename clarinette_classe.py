@@ -26,7 +26,7 @@ class Clarinette_DelayLine:
         self.L = L                       # longueur du résonateur (m)
         # Paramètres utiles pour la simulation
         self.T = 2*L/self.c                   # temps de parcours d'un aller-retour (s)
-        self.delta_t = self.T/128             # time step (s)
+        #self.delta_t = self.T/128             # time step (s)
     
     def params_controle_musicien(self, gamma, zeta) : 
         self.gamma = gamma                    # pression dans la bouche adimensionnée --> entre 1/3 et 1/2
@@ -35,7 +35,7 @@ class Clarinette_DelayLine:
         self.Zc = zeta*self.P_M/self.U_A      # impédance caractéristique (kg/s)
         self.S = self.rho*self.c/self.Zc      # section du résonateur (m^2)
         self.R = np.sqrt(self.S/np.pi)        # rayon du résonateur (m)
-        self.alpha = 2/(self.R*self.c**(3/2)) * ( np.sqrt(self.lv) + (self.cp_over_cv-1)*np.sqrt(self.lt))
+        self.alpha = 2/(self.R*self.c**(3/2)) * (np.sqrt(self.lv) + (self.cp_over_cv-1)*np.sqrt(self.lt))
 
     # AFFICHAGE
 
@@ -88,7 +88,7 @@ class Clarinette_DelayLine:
         return a*gauss 
         
     # Caractéristique non-linéaire
-    def F(self, P, gamma, zeta, P_M, Zc):
+    def F(self, P):
         """
         Caractéristique non-linéaire F telle que u = F(P_m-p)
 
@@ -103,12 +103,12 @@ class Clarinette_DelayLine:
         -------
             U : float, débit volumique dans le bec
         """
-        p = P/P_M # pression adimensionnée
-        if np.abs(gamma-p) <= 1:
-            u = zeta * (1+p-gamma) * np.sqrt(np.abs(gamma-p)) * (gamma-p)/np.abs(gamma-p) # débit adimensionné
+        p = P/self.P_M # pression adimensionnée
+        if np.abs(self.gamma-p) <= 1:
+            u = self.zeta * (1+p-self.gamma) * np.sqrt(np.abs(self.gamma-p)) * (self.gamma-p)/np.abs(self.gamma-p) # débit adimensionné
         else :
             u = 0
-        U = u*P_M/Zc # débit dimensionné
+        U = u*self.P_M/self.Zc # débit dimensionné
         return U
 
     def func_dicho(self, P, params):
@@ -121,7 +121,7 @@ class Clarinette_DelayLine:
             params : array
         """
         qh, Zc = params[0], params[1]
-        return self.F(P, self.gamma, self.zeta, self.P_M, self.Zc) - 1/Zc*(P-qh)
+        return self.F(P) - 1/Zc*(P-qh)
 
     def dichotomie(self, func, params, a, b, n, tol=1e-9):
         """ 
@@ -164,9 +164,10 @@ class Clarinette_DelayLine:
         n1 = 0.167
         d1 = 1.393
         d2 = 0.457
-        delta_t = 1/fs
+        self.fs = fs
+        self.delta_t = 1/fs
 
-        temps = np.arange(0, T_sec, delta_t)
+        temps = np.arange(0, T_sec, self.delta_t)
         N = len(temps)
         
         # Initialisation
@@ -203,8 +204,8 @@ class Clarinette_DelayLine:
             # calcul de q et f à l'instant t
             # trouver l'intersection entre la courbe F(P) et la droite U = 1/Zc*(P-qh) par dichotomie
             P[n] = self.dichotomie(self.func_dicho, [qh[n],self.Zc], -self.P_M, self.P_M, n)
-            U[n] = self.F(P[n],self.gamma, self.zeta, self.P_M, self.Zc)
-            P_ext[n] = (P[n]+U[n] - (P[n-1]+U[n-1])) / delta_t
+            U[n] = self.F(P[n])
+            P_ext[n] = (P[n]+U[n] - (P[n-1]+U[n-1])) / self.delta_t
             
         return temps, U, P, P_ext, qh
     
