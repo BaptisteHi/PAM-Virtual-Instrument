@@ -24,7 +24,7 @@ import scipy.io
 
 # PARAMETRES PHYSIQUES ET VARIABLES
 
-T_sec = 0.1    # durée de la simulation (s)
+T_sec = 0.5    # durée de la simulation (s)
 
 # Paramètres physiques liés à la corde
 
@@ -367,7 +367,8 @@ def execution(T_sec, delta_t):
     state[0] = -1
     
     # Initialisation
-    f, q, q_iL, q_iR = np.zeros(N), np.zeros(N), np.zeros(N), np.zeros(N)
+    f, q, q_iL, q_iR, q_oL, v = np.zeros(N), np.zeros(N), np.zeros(N), np.zeros(N), np.zeros(N), np.zeros(N)
+    f_b, v_b = np.zeros(N), np.zeros(N)
     
     D_R = int(np.rint(T_R*fs)) # temps de parcours aller-retour de la moitié droite de la corde en samples
     D_L = int(np.rint(T_L*fs))
@@ -376,10 +377,9 @@ def execution(T_sec, delta_t):
     a_m0 = (Wmod*delta_t)**2 + 4*Zmod*Wmod*delta_t + 4
     a_m1 = 2 * (Wmod**2*delta_t**2 - 4)
     a_m2 = (Wmod*delta_t)**2 - 4*Zmod*Wmod*delta_t + 4
-    qo = np.zeros(N)
-    qo[0] = 1
     fm = np.zeros((N,Nmod))
     qtot = np.zeros(N)
+    w = np.zeros((N,Nmod))
     
     # Boucle
     for n in range(1, N):
@@ -398,17 +398,20 @@ def execution(T_sec, delta_t):
             qtot_prev2 = 0
         
         if n >= D_L :
-            qo_D = 0.999*(q_iR[n-D_L] + Yc_half*f[n-D_L])
+            #qo_D = 0.999*(q_iR[n-D_L] + Yc_half*f[n-D_L])
+            qo_D = 0.999*q_oL[n-D_L]
         else :
             qo_D = 0
             
         if n >= D_L+1 :
-            qo_D1 = 0.999*(q_iR[n-D_L-1] + Yc_half*f[n-D_L-1])
+            #qo_D1 = 0.999*(q_iR[n-D_L-1] + Yc_half*f[n-D_L-1])
+            qo_D1 = 0.999*q_oL[n-D_L-1]
         else :
             qo_D1 = 0
         
         if n >= D_L+2:
-            qo_D2 = 0.999*(q_iR[n-D_L-2] + Yc_half*f[n-D_L-2])
+            #qo_D2 = 0.999*(q_iR[n-D_L-2] + Yc_half*f[n-D_L-2])
+            qo_D2 = 0.999*q_oL[n-D_L-2]
         else :
             qo_D2 = 0
             
@@ -427,11 +430,28 @@ def execution(T_sec, delta_t):
         state[n] = s
         # Méthode 2 : Newton : plus rapide mais moins précis
         #q[n], f[n] = hysteresis2(q[n-1], q_iL[n], q_iR[n], n)
+        
+        q_oL[n] = q_iR[n] + Yc_half*f[n]
+        
+        # pour le son à écouter
+        
+        v[n] = q_iL[n] + q_oL[n]
+        
+        if n >= 2 :
+            fb_prev2 = f_b[n-2]
+        else:
+            fb_prev2 = 0             
+                           
+        if n >= D_L/2 :
+            f_b[n] = 1/Yc_half * (q_oL[n-int(D_L/2)] - q_iR[n-int(D_L/2)])
+        
+        w[n] = 1/(a_m0) * (-a_m1*w[n-1] - a_m2*w[n-2] + bm*(f_b[n] - fb_prev2))
+        v_b[n] = np.sum(w[n])
            
         if n % 1000 == 0:
             print(f"Echantillon {n}/{N}")
     
-    return temps, f, q, q_iL, q_iR
+    return temps, f, q, q_iL, q_iR, v, f_b, v_b
  
     
 start = time()
@@ -441,13 +461,43 @@ f_vals = F(q_vals)
 q_min = q_vals[np.argmin(np.abs(f_vals-0.01*np.max(f_vals)))]
 
 
-temps, f, q, q_iL, q_iR = execution(T_sec, delta_t)
+temps, f, q, q_iL, q_iR, v, f_b, v_b = execution(T_sec, delta_t)
 stop = time()
 print("Temps d'exécution (s) :", stop-start)
     
 # AFFICHAGE
 
 #plt.close('all')
+
+main_path = os.path.expanduser('~') + "\Documents\M2 ATIAM\Projets et applications musicales\Modele physique"
+os.chdir(main_path+'\Figures')
+
+# activate latex
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "computer modern roman",
+    "font.size" :13,
+    "figure.dpi":100
+})
+
+plt.figure(figsize=(5,6))
+plt.subplot(211)
+plt.plot(temps,q)
+plt.ylabel(r"$v(t)$ (m/s)")
+plt.grid()
+axes = plt.gca()
+axes.xaxis.set_ticklabels([])
+plt.xlim(0.218,0.226)
+
+plt.subplot(212)
+plt.plot(temps, f)
+plt.ylabel(r"$f$ (N)")
+plt.xlabel(r'Temps $t$ (s)')
+plt.grid()
+plt.xlim(0.218,0.226)
+plt.ylim(0,0.02)
+
+plt.savefig('violon_onde.pdf',bbox_inches='tight')
 
 plt.figure()
 plt.plot(q_vals,f_vals, 'k', lw=0.5)
@@ -458,25 +508,34 @@ plt.ylabel('$f$')
 plt.xlim(q_min,vb+abs(q_min))
 plt.title("Parcours de la caractéristique NL")
 
-plt.figure()
-plt.title(r"$\beta =$"+str(beta)+", $F_b =$"+str(Fb)+ ", $v_b =$"+str(vb))
-plt.subplot(311)
-plt.plot(temps,q)
-plt.ylabel(r"$q$")
-plt.grid()
+# plt.figure()
+# plt.title(r"$\beta =$"+str(beta)+", $F_b =$"+str(Fb)+ ", $v_b =$"+str(vb))
+# plt.subplot(411)
+# plt.plot(temps,q)
+# plt.ylabel(r"$q$")
+# plt.grid()
 
-plt.subplot(312)
-plt.plot(temps,f)
-plt.ylabel(r"$f$")
-plt.grid()
+# plt.subplot(412)
+# plt.plot(temps,f)
+# plt.ylabel(r"$f$")
+# plt.grid()
 
-plt.subplot(313)
-plt.plot(temps,q_iL,label=r'$q_{iL}$')
-plt.plot(temps,q_iR,'--',label=r'$q_{iR}$')
-plt.xlabel(r"Temps $t$ (s)")
-plt.ylabel(r"$q_h$")
-plt.grid()
-plt.show()
+# plt.subplot(413)
+# # plt.plot(temps,q_iL,label=r'$q_{iL}$')
+# # plt.plot(temps,q_iR,'--',label=r'$q_{iR}$')
+# # plt.xlabel(r"Temps $t$ (s)")
+# # plt.ylabel(r"$q_h$")
+# # plt.grid()
+# plt.plot(temps, v_b)
+# plt.ylabel(r'$v_b$')
+# plt.grid()
+
+# plt.subplot(414)
+# plt.plot(temps,v)
+# plt.ylabel(r'$f_b$')
+# plt.xlabel(r'$t$')
+# plt.grid()
+# plt.show()
 
 #%%
 
@@ -649,6 +708,6 @@ def wave(data,fs,title):
     # normalize the data to have a good amplitude in 16-bit
     amplitude = np.iinfo(np.int16).max
     data_norm = data/np.max(data)*int(amplitude/2)
-    write(title+'.wav',fs,data_norm.astype(np.int16))
+    write(title+'.mp3',fs,data_norm.astype(np.int16))
     
-wave(q, int(1/delta_t), "string_adm_bridge")
+wave(v_b, int(1/delta_t), "string_adm_bridge2_vb")
