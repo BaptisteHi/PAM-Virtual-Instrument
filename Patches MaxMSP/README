@@ -1,3 +1,8 @@
 IMPLEMENTATION TEMPS REEL DES MODELES DANS MAX/MSP
 
+(1) Clarinette_imp_ray.maxpat : 
+Modèle temps réel de la clarinette. Utilisation de l'impédance de rayonnement pour générer la fonction de réflexion.
 
+Choix des paramètres : gamma, zeta.
+
+Grandeur écoutée : pression rayonnée au pavillon.
