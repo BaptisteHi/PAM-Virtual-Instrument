@@ -1,6 +1,14 @@
 READ ME - Audios
 
-Ce dossier les sons synthétisés par les différents modèles physiques. 
-Dictionnaire : 
+Ce dossier les sons synthétisés par les différents modèles physiques. Tous les sons sont issus des modèles Max/MSP. 
+
+Appellations des fichiers :
+    - "...clarinette_imp_ray..."     :  modèle prenant en compte l'impédance de rayonnement
+                                      dans le calcul de la fonction de réflexion
+                                      (dans le rapport, résonateur (a))
+  - "...clarinette_guillemain..."  :  modèle issu de l'article de Guillemain 
+                                      (dans le rapport, résonateur (b) : avec pertes, 
+                                      sans rayonnement).
+
 
 Liste des audios
