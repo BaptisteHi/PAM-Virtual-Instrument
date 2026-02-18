@@ -9,8 +9,133 @@
             "modernui": 1
         },
         "classnamespace": "box",
-        "rect": [ 34.0, 77.0, 1468.0, 705.0 ],
+        "rect": [ 34.0, 77.0, 1213.0, 610.0 ],
         "boxes": [
+            {
+                "box": {
+                    "floatoutput": 1,
+                    "id": "obj-21",
+                    "maxclass": "slider",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 719.4999330043793, 336.0, 20.0, 140.0 ],
+                    "size": 10.0
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-11",
+                    "maxclass": "newobj",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 579.0, 447.0, 34.0, 22.0 ],
+                    "text": "*~ 1."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-32",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 278.51850938796997, 232.49997782707214, 32.0, 22.0 ],
+                    "text": "mtof"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-31",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1049.9998998641968, 1092.499895811081, 101.0, 22.0 ],
+                    "text": "r~ force_chevalet"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-30",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 238.0806469321251, 677.4999353885651, 103.0, 22.0 ],
+                    "text": "s~ force_chevalet"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-29",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1046.1539459228516, 748.1539173126221, 101.0, 22.0 ],
+                    "text": "r~ vitesse_caisse"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-27",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1046.1539459228516, 443.6923522949219, 101.0, 22.0 ],
+                    "text": "r~ vitesse_caisse"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-24",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 1050.0, 242.49997687339783, 101.0, 22.0 ],
+                    "text": "r~ vitesse_caisse"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-23",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "signal" ],
+                    "patching_rect": [ 579.0, 369.0, 101.0, 22.0 ],
+                    "text": "r~ vitesse_caisse"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-22",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 66.12903273105621, 677.4999353885651, 103.0, 22.0 ],
+                    "text": "s~ vitesse_caisse"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-7",
+                    "maxclass": "kslider",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "offset": 61,
+                    "outlettype": [ "int", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 278.51850938796997, 168.7499839067459, 96.0, 53.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 196.24998128414154, 94.999990940094, 96.0, 53.0 ],
+                    "range": 13
+                }
+            },
             {
                 "box": {
                     "automatic": 1,
@@ -18,7 +143,7 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 493.75, 1096.875, 418.4615783691406, 166.15386199951172 ]
+                    "patching_rect": [ 66.24999368190765, 724.9999308586121, 418.4615783691406, 166.15386199951172 ]
                 }
             },
             {
@@ -54,42 +179,12 @@
             },
             {
                 "box": {
-                    "id": "obj-61",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 481.4814656972885, 352.8518403172493, 150.0, 20.0 ],
-                    "text": "fixe"
-                }
-            },
-            {
-                "box": {
                     "id": "obj-60",
                     "maxclass": "comment",
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 455.6111190319061, 300.25924944877625, 150.0, 20.0 ],
                     "text": "variable"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-59",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 431.11109697818756, 273.131139755249, 150.0, 20.0 ],
-                    "text": "variable"
-                }
-            },
-            {
-                "box": {
-                    "id": "obj-57",
-                    "maxclass": "comment",
-                    "numinlets": 1,
-                    "numoutlets": 0,
-                    "patching_rect": [ 476.29628068208694, 327.6666559576988, 150.0, 20.0 ],
-                    "text": "fixe"
                 }
             },
             {
@@ -145,7 +240,9 @@
                     "maxclass": "scope~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 1050.0, 273.0, 418.4615783691406, 166.15386199951172 ]
+                    "patching_rect": [ 1050.0, 273.0, 418.4615783691406, 166.15386199951172 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 196.24998128414154, 162.49998450279236, 529.9999494552612, 124.99998807907104 ]
                 }
             },
             {
@@ -155,7 +252,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 422.4138152599335, 910.3448753356934, 44.0, 22.0 ],
+                    "patching_rect": [ 779.9999256134033, 628.7499400377274, 44.0, 22.0 ],
                     "text": "*~ 127"
                 }
             },
@@ -166,7 +263,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 422.4138152599335, 879.3103909492493, 33.0, 22.0 ],
+                    "patching_rect": [ 779.9999256134033, 601.2499426603317, 33.0, 22.0 ],
                     "text": "+~ 1"
                 }
             },
@@ -177,7 +274,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 588.8888790607452, 898.2759091854095, 44.0, 22.0 ],
+                    "patching_rect": [ 844.9999194145203, 656.249937415123, 44.0, 22.0 ],
                     "text": "*~ 127"
                 }
             },
@@ -188,7 +285,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 588.8888790607452, 867.2414247989655, 33.0, 22.0 ],
+                    "patching_rect": [ 844.9999194145203, 628.7499400377274, 33.0, 22.0 ],
                     "text": "+~ 1"
                 }
             },
@@ -199,7 +296,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 334.8852376937866, 909.8695442676544, 54.0, 22.0 ],
+                    "patching_rect": [ 702.4999330043793, 624.9999403953552, 54.0, 22.0 ],
                     "text": "sig~ 255"
                 }
             },
@@ -210,7 +307,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 588.8888790607452, 839.6552164554596, 98.0, 22.0 ],
+                    "patching_rect": [ 844.9999194145203, 599.999942779541, 98.0, 22.0 ],
                     "text": "scale~ -10 2 -1 1"
                 }
             },
@@ -221,7 +318,7 @@
                     "numinlets": 6,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 422.4138152599335, 839.6552164554596, 98.0, 22.0 ],
+                    "patching_rect": [ 779.9999256134033, 572.4999454021454, 98.0, 22.0 ],
                     "text": "scale~ -10 2 -1 1"
                 }
             },
@@ -232,7 +329,7 @@
                     "numinlets": 3,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 424.1111190319061, 983.8695468902588, 109.0, 22.0 ],
+                    "patching_rect": [ 716.2499316930771, 698.7499333620071, 147.49998593330383, 22.0 ],
                     "text": "jit.poke~ scope 2 1"
                 }
             },
@@ -254,7 +351,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 1046.5517790317535, 774.1379716396332, 1024.0, 313.0 ]
+                    "patching_rect": [ 1046.1539459228516, 777.4999258518219, 1024.0, 313.0 ]
                 }
             },
             {
@@ -264,7 +361,7 @@
                     "numinlets": 2,
                     "numoutlets": 1,
                     "outlettype": [ "" ],
-                    "patching_rect": [ 53.4482786655426, 529.3103725910187, 35.0, 22.0 ],
+                    "patching_rect": [ 23.7499977350235, 588.7499438524246, 35.0, 22.0 ],
                     "text": "reset"
                 }
             },
@@ -276,7 +373,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "bang" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 511.1111190319061, 501.58730936050415, 24.0, 24.0 ]
+                    "patching_rect": [ 213.7499796152115, 546.2499479055405, 24.0, 24.0 ]
                 }
             },
             {
@@ -288,7 +385,9 @@
                     "numoutlets": 5,
                     "outlettype": [ "signal", "signal", "", "float", "list" ],
                     "parameter_enable": 1,
-                    "patching_rect": [ 93.47825908660889, 778.2608547210693, 48.0, 136.0 ],
+                    "patching_rect": [ 579.0, 510.9999403953552, 48.0, 136.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 736.0, 94.999990940094, 48.0, 136.0 ],
                     "saved_attribute_attributes": {
                         "valueof": {
                             "parameter_longname": "live.gain~",
@@ -310,7 +409,7 @@
                     "numinlets": 1,
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
-                    "patching_rect": [ 511.1111190319061, 538.0952464342117, 39.0, 22.0 ],
+                    "patching_rect": [ 213.7499796152115, 582.4999444484711, 39.0, 22.0 ],
                     "text": "click~"
                 }
             },
@@ -320,7 +419,9 @@
                     "maxclass": "ezdac~",
                     "numinlets": 2,
                     "numoutlets": 0,
-                    "patching_rect": [ 95.65217208862305, 960.8695468902588, 45.0, 45.0 ]
+                    "patching_rect": [ 579.0, 670.0, 45.0, 45.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 738.0, 241.999990940094, 45.0, 45.0 ]
                 }
             },
             {
@@ -417,7 +518,7 @@
                             "modernui": 1
                         },
                         "classnamespace": "dsp.gen",
-                        "rect": [ 34.0, 77.0, 1468.0, 705.0 ],
+                        "rect": [ -70.0, 153.0, 1197.0, 594.0 ],
                         "boxes": [
                             {
                                 "box": {
@@ -425,7 +526,7 @@
                                     "maxclass": "newobj",
                                     "numinlets": 1,
                                     "numoutlets": 0,
-                                    "patching_rect": [ 1741.0, 1101.0, 35.0, 22.0 ],
+                                    "patching_rect": [ 1775.409785270691, 1124.0, 35.0, 22.0 ],
                                     "text": "out 3"
                                 }
                             },
@@ -765,7 +866,7 @@
                             },
                             {
                                 "box": {
-                                    "code": "R = d / 2;                                                  // rayon de la corde (m)\r\nc = sqrt(tension / mu);                                     // vitesse du son (m/s)\r\nT_left = 2*L*x/c;                                           // temps de parcours aller-retour de la partie gauche de la corde (s) \r\nT_right = 2*L*(1-x)/c;                                      // temps de parcours aller-retour de la partie droite de la corde (s)\r\nD_left = int(round(T_left*samplerate));\r\nD_right = int(round(T_right*samplerate));\r\narea = PI*R*R;                                              // section de la corde (m^2)\r\nrho = mu / area;                                            // masse volumique (kg/m^3)\r\nf0 = c / (2*L);                                             // fréquence fondamentale\r\nZc = rho * c * area;                                        // impédance caractéristique (kg/s)\r\nYc = 1 / Zc;                                                // admittance (s/kg)\r\nYc_half = Yc/2;\r\n\r\nout1=Yc_half; out2=Zc; out3=D_left; out4=D_right;",
+                                    "code": "R = d / 2;                                                  // rayon de la corde (m)\r\nc = sqrt(tension / mu);                                     // vitesse du son (m/s)\r\nL = c / (2*f0);                                            \r\nT_left = 2*L*x/c;                                           // temps de parcours aller-retour de la partie gauche de la corde (s) \r\nT_right = 2*L*(1-x)/c;                                      // temps de parcours aller-retour de la partie droite de la corde (s)\r\nD_left = int(round(T_left*samplerate));\r\nD_right = int(round(T_right*samplerate));\r\narea = PI*R*R;                                              // section de la corde (m^2)\r\nrho = mu / area;                                            // masse volumique (kg/m^3)                                         \r\nZc = rho * c * area;                                        // impédance caractéristique (kg/s)\r\nYc = 1 / Zc;                                                // admittance (s/kg)\r\nYc_half = Yc/2;\r\n\r\nout1=Yc_half; out2=Zc; out3=D_left; out4=D_right;",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
@@ -869,8 +970,8 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 15.384617328643799, 600.0000758171082, 297.0, 22.0 ],
-                                    "text": "param @default 0.2 @min 0.001 @max 5. @name Fb"
+                                    "patching_rect": [ 15.384617328643799, 600.0000758171082, 277.0, 22.0 ],
+                                    "text": "param @default 0.2 @min 0. @max 5. @name Fb"
                                 }
                             },
                             {
@@ -880,8 +981,8 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 15.384617328643799, 575.6410983800888, 309.0, 22.0 ],
-                                    "text": "param @default 0.45 @min 0.001 @max 0.5 @name vb"
+                                    "patching_rect": [ 15.384617328643799, 575.6410983800888, 279.0, 22.0 ],
+                                    "text": "param @default 0.45 @min 0. @max 2 @name vb"
                                 }
                             },
                             {
@@ -913,13 +1014,13 @@
                                     "numinlets": 0,
                                     "numoutlets": 1,
                                     "outlettype": [ "" ],
-                                    "patching_rect": [ 15.384617328643799, 59.333343863487244, 303.0, 22.0 ],
-                                    "text": "param @default 0.325 @min 0.01 @max 0.7 @name L"
+                                    "patching_rect": [ 15.384617328643799, 59.333343863487244, 180.0, 22.0 ],
+                                    "text": "param @default 440. @name f0"
                                 }
                             },
                             {
                                 "box": {
-                                    "code": "// Fonction get_q_and_f --> otenir q(t) et f(q) à partir de q(h)\r\n\r\nF_continu(q_, vb_, Fb_, v0_){\r\n    frac = (vb_ - q_) / v0_;\r\n    return Fb_ * frac  / (1 + frac*frac);   \r\n}\r\n\r\ndicho(q_, q_h_, Yc_half_, vb_, Fb_, v0_) {\r\n    return q_ - q_h_ - Yc_half_ * F_continu(q_, vb_, Fb_, v0_);\r\n}\r\n\r\nprime_dicho(q_, q_h_, Yc_half_, vb_, Fb_, v0_) {\r\n    frac = (vb_ - q_) / v0_;\r\n    df_dq = - (Fb_ / v0_) * (1 - frac*frac) / ((1 + frac*frac)*(1 + frac*frac));\r\n    return 1.0 - Yc_half_ * df_dq;\r\n}\r\n\r\n\r\nHistory q_guess(0);\r\nHistory init(0);\r\nHistory initialized(0);\r\nHistory fb_prev1(0);\r\nHistory fb_prev2(0);\r\nData Mmod(88);\r\nData Wmod(88);\r\nData Zmod(88);\r\nData gm(88);\r\nData fm(88);\r\nData fm_prev(88);\r\nData fm_prev2(88);\r\nData wm(88);\r\nData wm_prev(88);\r\nData wm_prev2(88);\r\nData a_m0(88);\r\nData a_m1(88);\r\nData a_m2(88);\r\nData bm(88);\r\n\r\nqiL_prev2 = in1;\r\nqiL_D = in2;\r\nqiR_halfD = in3;\r\nqo_D = 0.995*in4;\r\nqo_D2 = 0.995*in5;\r\nqoL_halfD = in6;\r\nqtot_prev2 = in7;\r\nf_D = in8;\r\nYc_half = in9;\r\nZc = in10;\r\n\r\n\r\n\ndt = 1 / samplerate;\n\n// On ne calcule ces 88 coefficients qu'une seule fois\nif (initialized == 0) {\r\n    poke(Mmod, 1.797487, 0);\r\n    poke(Mmod,  0.304601, 1);\r\n    poke(Mmod, 98.138926, 2);\r\n    poke(Mmod, 0.02025, 3);\r\n    poke(Mmod, 0.146994, 4);\r\n    poke(Mmod, 0.128842, 5);\r\n    poke(Mmod, 0.370522, 7);\r\n    poke(Mmod, 0.265211, 8);\r\n    poke(Mmod, 0.022144, 9);\r\n    poke(Mmod, 0.042631, 10);\r\n    poke(Mmod, 0.122402, 11);\r\n    poke(Mmod, 0.062906, 12);\r\n    poke(Mmod, 0.013751, 13);\r\n    poke(Mmod, 1.618522, 14);\r\n    poke(Mmod, 0.035819, 15);\r\n    poke(Mmod, 0.382305, 16);\r\n    poke(Mmod, 0.056474, 17);\r\n    poke(Mmod, 0.722967, 18);\r\n    poke(Mmod, 0.189861, 19);\r\n    poke(Mmod, 0.04448, 20);\r\n    poke(Mmod,  0.050795, 21);\r\n    poke(Mmod, 0.030931, 22);\r\n    poke(Mmod, 0.082283, 23);\r\n    poke(Mmod, 0.034803, 24);\r\n    poke(Mmod, 0.018117, 25);\r\n    poke(Mmod, 0.031536, 26);\r\n    poke(Mmod, 0.115636, 27);\r\n    poke(Mmod, 0.010929, 28);\r\n    poke(Mmod, 0.030999, 29);\r\n    poke(Mmod, 0.314412, 30);\r\n    poke(Mmod, 0.032312, 31);\r\n    poke(Mmod, 0.009403, 32);\r\n    poke(Mmod, 0.088533, 33);\r\n    poke(Mmod, 0.060034, 34);\r\n    \r\n    poke(Wmod, 1373.413794, 0);\r\n    poke(Wmod, 1818.49807, 1);\r\n    poke(Wmod, 2812.808638, 2);\r\n    poke(Wmod, 3682.948216, 3);\r\n    poke(Wmod, 3878.181447, 4);\r\n    poke(Wmod, 4271.486041, 5);\r\n    poke(Wmod, 5353.815038, 6);\r\n    poke(Wmod, 5778.452768, 7);\r\n    poke(Wmod, 6946.047352, 8);\r\n    poke(Wmod, 7187.139422, 9);\r\n    poke(Wmod, 7633.209517, 10);\r\n    poke(Wmod, 8362.761828, 11);\r\n    poke(Wmod, 8884.677319, 12);\r\n    poke(Wmod, 9562.667766, 13);\r\n    poke(Wmod, 10044.215276, 14);\r\n    poke(Wmod, 10911.039688, 15);\r\n    poke(Wmod, 11230.857653, 16);\r\n    poke(Wmod, 11441.417113, 17);\r\n    poke(Wmod, 12132.573726, 18);\r\n    poke(Wmod, 12329.132521, 19);\r\n    poke(Wmod, 12779.992896, 20);\r\n    poke(Wmod, 13487.223907, 21);\r\n    poke(Wmod, 13812.89152, 22);\r\n    poke(Wmod, 14128.224227, 23);\r\n    poke(Wmod, 14734.279208, 24);\r\n    poke(Wmod, 15686.360266, 25);\r\n    poke(Wmod, 15880.162351, 26);\r\n    poke(Wmod, 16519.575117, 27);\r\n    poke(Wmod, 17246.926539, 28);\r\n    poke(Wmod, 17556.028167, 29);\r\n    poke(Wmod, 18211.477956, 30);\r\n    poke(Wmod, 18420.358618, 31);\r\n    poke(Wmod, 19067.828992, 32);\r\n    poke(Wmod, 19407.986363, 33);\r\n    poke(Wmod, 19969.942067, 34);\r\n    \r\n    poke(Zmod, 0.02806, 0);\r\n    poke(Zmod, 0.030843, 1);\r\n    poke(Zmod, 0.025089, 2);\r\n    poke(Zmod, 0.016473, 3);\r\n    poke(Zmod, 0.028986, 4);\r\n    poke(Zmod, 0.053522, 5);\r\n    poke(Zmod, 0.022354, 6);\r\n    poke(Zmod, 0.017469, 7);\r\n    poke(Zmod, 0.025486, 8);\r\n    poke(Zmod, 0.006351, 9);\r\n    poke(Zmod, 0.016635, 10);\r\n    poke(Zmod, 0.013245, 11);\r\n    poke(Zmod,  0.014157, 12);\r\n    poke(Zmod, 0.003408, 13);\r\n    poke(Zmod, 0.009902, 14);\r\n    poke(Zmod, 0.017948, 15);\r\n    poke(Zmod, 0.026973, 16);\r\n    poke(Zmod, 0.00743, 17);\r\n    poke(Zmod, 0.032272, 18);\r\n    poke(Zmod, 0.005593, 19);\r\n    poke(Zmod, 0.007634, 20);\r\n    poke(Zmod, 0.007395, 21);\r\n    poke(Zmod, 0.034328, 22);\r\n    poke(Zmod, 0.009036, 23); \r\n    poke(Zmod, 0.013227, 24);\r\n    poke(Zmod, 0.01258, 25);\r\n    poke(Zmod, 0.011989, 26);\r\n    poke(Zmod, 0.011913, 27);\r\n    poke(Zmod, 0.005868, 28);\r\n    poke(Zmod, 0.007603, 29);\r\n    poke(Zmod, 0.006733, 30);\r\n    poke(Zmod, 0.014741, 31);\r\n    poke(Zmod, 0.008533, 32);\r\n    poke(Zmod, 0.009627, 33);\r\n    poke(Zmod, 0.007925, 34);\r\n    \n    for (i = 0; i < 88; i += 1) {\r\n\n        Wi = peek(Wmod, i);      // Lire l'élément de Wmod\r\n        Mi = peek(Mmod, i);\r\n        Zi = peek(Zmod, i);\n        \r\n        b = 2 * dt / Mi ;\r\n        a0 = pow(Wi*dt,2) + 4*Zi*Wi*dt + 4;\r\n        a1 = 2 * (pow(Wi*dt,2) - 4);\r\n        a2 = pow(Wi*dt,2) - 4*Zi*Wi*dt + 4;\r\n        \n        poke(bm, b, i);       // Stocker dans bm\r\n        poke(a_m0, a0, i);\r\n        poke(a_m1, a1, i);\r\n        poke(a_m2, a2, i);\n    }\r\n    initialized = 1;\r\n}\r\n\r\n\r\nif (init==0){\r\n    for (i=0; i<88; i+=1) {\r\n        poke(fm_prev, 0, i);\r\n        poke(fm_prev2, 0, i);\r\n        poke(wm_prev, 0, i);\r\n        poke(wm_prev2, 0, i);\r\n    }\r\n    init=1;\r\n}\r\n\r\nq_iR = - (qiL_D + Yc_half*f_D);\r\n\r\nfor (i=0; i<88; i+=1) {\r\n    b = peek(bm, i);\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    f_prev = peek(fm_prev, i);\r\n    f_prev2 = peek(fm_prev2, i);\r\n    g = b * (-qo_D - qiL_prev2 + qo_D2) - a1*f_prev - a2*f_prev2;\r\n    poke(gm, g, i);\r\n}\r\n\r\ng_over_a0 = 0;\r\nb_over_a0 = 0;\r\nfor (i=0; i<88; i+=1) {\r\n    g = peek(gm, i);\r\n    b = peek(bm, i);\r\n    a0 = peek(a_m0, i);\r\n    g_over_a0 = g_over_a0 + g/a0;\r\n    b_over_a0 = b_over_a0 + b/a0;\r\n}\r\n\r\nq_iL = (-qo_D - Zc*g_over_a0) / (1 + Zc*b_over_a0);\r\nq_h = q_iL + q_iR;\r\nqtot = q_iL - qo_D;\r\nfor (i=0; i<88; i+=1) {\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    b = peek(bm, i);\r\n    f_prev = peek(fm_prev, i);\r\n    f_prev2 = peek(fm_prev2, i);\r\n    a0 = peek(a_m0, i);\r\n    f = (- a1*f_prev - a2*f_prev2 + b*(qtot - qtot_prev2)) / a0;\r\n    poke(fm, f, i);\r\n}\r\n\r\n//update\r\nfor (i=0; i<88; i+=1) {\r\n    f = peek(fm, i);\r\n    f_prev = peek(fm_prev, i);\r\n    poke(fm_prev2, f_prev, i);\r\n    poke(fm_prev, f, i);\r\n}\r\n\r\nw = q_guess;\r\n\r\n// Algorithme Newton-Raphson (cours Bilbao)\r\ntol = 1e-9;\r\nmaxiters = 50;\r\n\r\nfor (i=0; i<maxiters; i+=1) {\r\n   dicho_val = dicho(w, q_h, Yc_half, vb, Fb, v0);\r\n   dicho_slope = prime_dicho(w, q_h, Yc_half, vb, Fb, v0);\r\n   \r\n   // Débloquer l'algorithme si la pente est trop faible\r\n    if (abs(dicho_slope) < 1e-9) {\r\n       dicho_slope = 1e-9*sign(dicho_slope);\r\n   }\r\n   \r\n   delta = dicho_val / dicho_slope;\r\n   //delta = clamp(delta, -v0, v0); // éviter explosion\r\n   w = w - delta;\r\n   \r\n   if (abs(delta) < tol) {\n        break;\n   }\r\n   \r\n}\r\n\r\nq_guess = w;\r\n\r\nF_val = F_continu(w, vb, Fb, v0); // force au point de contact corde-archet\r\n\r\n// calculs pour le son à écouter\r\nq_oL = q_iR + Yc_half*F_val;\r\nf_b = 1/Yc_half * (qoL_halfD - qiR_halfD);\r\nfor (i=0; i<88; i+=1) {\r\n    a0 = peek(a_m0, i);\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    b = peek(bm, i);\r\n    w_prev = peek(wm_prev, i);\r\n    w_prev2 = peek(wm_prev2, i);\r\n    wi = (- a1*w_prev - a2*w_prev2 + b*(f_b - fb_prev2)) / a0;\r\n    poke(wm, wi, i);\r\n}\r\nv_b = 0;\r\nfor (i=0; i<88; i+=1) {\r\n    wi = peek(wm, i);\r\n    v_b = v_b + wi ;\r\n}\r\n\r\n//update\r\nfor (i=0; i<88; i+=1) {\r\n    wj = peek(wm, i);\r\n    wj_prev = peek(wm_prev, i);\r\n    poke(wm_prev2, wj_prev, i);\r\n    poke(wm_prev, wj, i);\r\n}\r\nfb_prev2 = fb_prev1;\r\nfb_prev1 = f_b;\r\n\r\nout1 = w;\r\nout2 = q_iL;\r\nout3 = q_iR;\r\nout4 = qtot;\r\nout5 = F_val;\r\nout6 = f_b;\r\nout7 = v_b;\r\nout8 = w;\r\n",
+                                    "code": "// Fonction get_q_and_f --> otenir q(t) et f(q) à partir de q(h)\r\n\r\nF_continu(q_, vb_, Fb_, v0_){\r\n    frac = (vb_ - q_) / v0_;\r\n    return Fb_ * frac  / (1 + frac*frac);   \r\n}\r\n\r\ndicho(q_, q_h_, Yc_half_, vb_, Fb_, v0_) {\r\n    return q_ - q_h_ - Yc_half_ * F_continu(q_, vb_, Fb_, v0_);\r\n}\r\n\r\nprime_dicho(q_, q_h_, Yc_half_, vb_, Fb_, v0_) {\r\n    frac = (vb_ - q_) / v0_;\r\n    df_dq = - (Fb_ / v0_) * (1 - frac*frac) / ((1 + frac*frac)*(1 + frac*frac));\r\n    return 1.0 - Yc_half_ * df_dq;\r\n}\r\n\r\n\r\nHistory q_guess(0);\r\nHistory init(0);\r\nHistory initialized(0);\r\nHistory fb_prev1(0);\r\nHistory fb_prev2(0);\r\nData Mmod(88);\r\nData Wmod(88);\r\nData Zmod(88);\r\nData gm(88);\r\nData fm(88);\r\nData fm_prev(88);\r\nData fm_prev2(88);\r\nData wm(88);\r\nData wm_prev(88);\r\nData wm_prev2(88);\r\nData a_m0(88);\r\nData a_m1(88);\r\nData a_m2(88);\r\nData bm(88);\r\n\r\nqiL_prev2 = in1;\r\nqiL_D = in2;\r\nqiL_halfD = in3;\r\nqo_D = 0.995*in4;\r\nqo_D2 = 0.995*in5;\r\nqo_halfD = in6;\r\nqtot_prev2 = in7;\r\nf_D = in8;\r\nYc_half = in9;\r\nZc = in10;\r\n\r\n\r\n\ndt = 1 / samplerate;\n\n// On ne calcule ces 88 coefficients qu'une seule fois\nif (initialized == 0) {\r\n    poke(Mmod, 1.797487, 0);\r\n    poke(Mmod,  0.304601, 1);\r\n    poke(Mmod, 98.138926, 2);\r\n    poke(Mmod, 0.02025, 3);\r\n    poke(Mmod, 0.146994, 4);\r\n    poke(Mmod, 0.128842, 5);\r\n    poke(Mmod, 0.370522, 7);\r\n    poke(Mmod, 0.265211, 8);\r\n    poke(Mmod, 0.022144, 9);\r\n    poke(Mmod, 0.042631, 10);\r\n    poke(Mmod, 0.122402, 11);\r\n    poke(Mmod, 0.062906, 12);\r\n    poke(Mmod, 0.013751, 13);\r\n    poke(Mmod, 1.618522, 14);\r\n    poke(Mmod, 0.035819, 15);\r\n    poke(Mmod, 0.382305, 16);\r\n    poke(Mmod, 0.056474, 17);\r\n    poke(Mmod, 0.722967, 18);\r\n    poke(Mmod, 0.189861, 19);\r\n    poke(Mmod, 0.04448, 20);\r\n    poke(Mmod,  0.050795, 21);\r\n    poke(Mmod, 0.030931, 22);\r\n    poke(Mmod, 0.082283, 23);\r\n    poke(Mmod, 0.034803, 24);\r\n    poke(Mmod, 0.018117, 25);\r\n    poke(Mmod, 0.031536, 26);\r\n    poke(Mmod, 0.115636, 27);\r\n    poke(Mmod, 0.010929, 28);\r\n    poke(Mmod, 0.030999, 29);\r\n    poke(Mmod, 0.314412, 30);\r\n    poke(Mmod, 0.032312, 31);\r\n    poke(Mmod, 0.009403, 32);\r\n    poke(Mmod, 0.088533, 33);\r\n    poke(Mmod, 0.060034, 34);\r\n    \r\n    poke(Wmod, 1373.413794, 0);\r\n    poke(Wmod, 1818.49807, 1);\r\n    poke(Wmod, 2812.808638, 2);\r\n    poke(Wmod, 3682.948216, 3);\r\n    poke(Wmod, 3878.181447, 4);\r\n    poke(Wmod, 4271.486041, 5);\r\n    poke(Wmod, 5353.815038, 6);\r\n    poke(Wmod, 5778.452768, 7);\r\n    poke(Wmod, 6946.047352, 8);\r\n    poke(Wmod, 7187.139422, 9);\r\n    poke(Wmod, 7633.209517, 10);\r\n    poke(Wmod, 8362.761828, 11);\r\n    poke(Wmod, 8884.677319, 12);\r\n    poke(Wmod, 9562.667766, 13);\r\n    poke(Wmod, 10044.215276, 14);\r\n    poke(Wmod, 10911.039688, 15);\r\n    poke(Wmod, 11230.857653, 16);\r\n    poke(Wmod, 11441.417113, 17);\r\n    poke(Wmod, 12132.573726, 18);\r\n    poke(Wmod, 12329.132521, 19);\r\n    poke(Wmod, 12779.992896, 20);\r\n    poke(Wmod, 13487.223907, 21);\r\n    poke(Wmod, 13812.89152, 22);\r\n    poke(Wmod, 14128.224227, 23);\r\n    poke(Wmod, 14734.279208, 24);\r\n    poke(Wmod, 15686.360266, 25);\r\n    poke(Wmod, 15880.162351, 26);\r\n    poke(Wmod, 16519.575117, 27);\r\n    poke(Wmod, 17246.926539, 28);\r\n    poke(Wmod, 17556.028167, 29);\r\n    poke(Wmod, 18211.477956, 30);\r\n    poke(Wmod, 18420.358618, 31);\r\n    poke(Wmod, 19067.828992, 32);\r\n    poke(Wmod, 19407.986363, 33);\r\n    poke(Wmod, 19969.942067, 34);\r\n    \r\n    poke(Zmod, 0.02806, 0);\r\n    poke(Zmod, 0.030843, 1);\r\n    poke(Zmod, 0.025089, 2);\r\n    poke(Zmod, 0.016473, 3);\r\n    poke(Zmod, 0.028986, 4);\r\n    poke(Zmod, 0.053522, 5);\r\n    poke(Zmod, 0.022354, 6);\r\n    poke(Zmod, 0.017469, 7);\r\n    poke(Zmod, 0.025486, 8);\r\n    poke(Zmod, 0.006351, 9);\r\n    poke(Zmod, 0.016635, 10);\r\n    poke(Zmod, 0.013245, 11);\r\n    poke(Zmod,  0.014157, 12);\r\n    poke(Zmod, 0.003408, 13);\r\n    poke(Zmod, 0.009902, 14);\r\n    poke(Zmod, 0.017948, 15);\r\n    poke(Zmod, 0.026973, 16);\r\n    poke(Zmod, 0.00743, 17);\r\n    poke(Zmod, 0.032272, 18);\r\n    poke(Zmod, 0.005593, 19);\r\n    poke(Zmod, 0.007634, 20);\r\n    poke(Zmod, 0.007395, 21);\r\n    poke(Zmod, 0.034328, 22);\r\n    poke(Zmod, 0.009036, 23); \r\n    poke(Zmod, 0.013227, 24);\r\n    poke(Zmod, 0.01258, 25);\r\n    poke(Zmod, 0.011989, 26);\r\n    poke(Zmod, 0.011913, 27);\r\n    poke(Zmod, 0.005868, 28);\r\n    poke(Zmod, 0.007603, 29);\r\n    poke(Zmod, 0.006733, 30);\r\n    poke(Zmod, 0.014741, 31);\r\n    poke(Zmod, 0.008533, 32);\r\n    poke(Zmod, 0.009627, 33);\r\n    poke(Zmod, 0.007925, 34);\r\n    \n    for (i = 0; i < 88; i += 1) {\r\n\n        Wi = peek(Wmod, i);      // Lire l'élément de Wmod\r\n        Mi = peek(Mmod, i);\r\n        Zi = peek(Zmod, i);\n        \r\n        b = 2 * dt / Mi ;\r\n        a0 = pow(Wi*dt,2) + 4*Zi*Wi*dt + 4;\r\n        a1 = 2 * (pow(Wi*dt,2) - 4);\r\n        a2 = pow(Wi*dt,2) - 4*Zi*Wi*dt + 4;\r\n        \n        poke(bm, b, i);       // Stocker dans bm\r\n        poke(a_m0, a0, i);\r\n        poke(a_m1, a1, i);\r\n        poke(a_m2, a2, i);\n    }\r\n    initialized = 1;\r\n}\r\n\r\n\r\nif (init==0){\r\n    for (i=0; i<88; i+=1) {\r\n        poke(fm_prev, 0, i);\r\n        poke(fm_prev2, 0, i);\r\n        poke(wm_prev, 0, i);\r\n        poke(wm_prev2, 0, i);\r\n    }\r\n    init=1;\r\n}\r\n\r\nq_iR = - (qiL_D + Yc_half*f_D);\r\n\r\nfor (i=0; i<88; i+=1) {\r\n    b = peek(bm, i);\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    f_prev = peek(fm_prev, i);\r\n    f_prev2 = peek(fm_prev2, i);\r\n    g = b * (-qo_D - qiL_prev2 + qo_D2) - a1*f_prev - a2*f_prev2;\r\n    poke(gm, g, i);\r\n}\r\n\r\ng_over_a0 = 0;\r\nb_over_a0 = 0;\r\nfor (i=0; i<88; i+=1) {\r\n    g = peek(gm, i);\r\n    b = peek(bm, i);\r\n    a0 = peek(a_m0, i);\r\n    g_over_a0 = g_over_a0 + g/a0;\r\n    b_over_a0 = b_over_a0 + b/a0;\r\n}\r\n\r\nq_iL = (-qo_D - Zc*g_over_a0) / (1 + Zc*b_over_a0);\r\nq_h = q_iL + q_iR;\r\nqtot = q_iL - qo_D;\r\nfor (i=0; i<88; i+=1) {\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    b = peek(bm, i);\r\n    f_prev = peek(fm_prev, i);\r\n    f_prev2 = peek(fm_prev2, i);\r\n    a0 = peek(a_m0, i);\r\n    f = (- a1*f_prev - a2*f_prev2 + b*(qtot - qtot_prev2)) / a0;\r\n    poke(fm, f, i);\r\n}\r\n\r\n//update\r\nfor (i=0; i<88; i+=1) {\r\n    f = peek(fm, i);\r\n    f_prev = peek(fm_prev, i);\r\n    poke(fm_prev2, f_prev, i);\r\n    poke(fm_prev, f, i);\r\n}\r\n\r\nw = q_guess;\r\n\r\n// Algorithme Newton-Raphson (cours Bilbao)\r\ntol = 1e-9;\r\nmaxiters = 50;\r\n\r\nfor (i=0; i<maxiters; i+=1) {\r\n   dicho_val = dicho(w, q_h, Yc_half, vb, Fb, v0);\r\n   dicho_slope = prime_dicho(w, q_h, Yc_half, vb, Fb, v0);\r\n   \r\n   // Débloquer l'algorithme si la pente est trop faible\r\n    if (abs(dicho_slope) < 1e-9) {\r\n       dicho_slope = 1e-9*sign(dicho_slope);\r\n   }\r\n   \r\n   delta = dicho_val / dicho_slope;\r\n   //delta = clamp(delta, -v0, v0); // éviter explosion\r\n   w = w - delta;\r\n   \r\n   if (abs(delta) < tol) {\n        break;\n   }\r\n   \r\n}\r\n\r\nq_guess = w;\r\n\r\nF_val = F_continu(w, vb, Fb, v0); // force au point de contact corde-archet\r\n\r\n// calculs pour le son à écouter\r\nq_oL = q_iR + Yc_half*F_val;\r\nf_b = 1/Yc_half * (qo_halfD - qiL_halfD);\r\nfor (i=0; i<88; i+=1) {\r\n    a0 = peek(a_m0, i);\r\n    a1 = peek(a_m1, i);\r\n    a2 = peek(a_m2, i);\r\n    b = peek(bm, i);\r\n    w_prev = peek(wm_prev, i);\r\n    w_prev2 = peek(wm_prev2, i);\r\n    wi = (- a1*w_prev - a2*w_prev2 + b*(f_b - fb_prev2)) / a0;\r\n    poke(wm, wi, i);\r\n}\r\nv_b = 0;\r\nfor (i=0; i<88; i+=1) {\r\n    wi = peek(wm, i);\r\n    v_b = v_b + wi ;\r\n}\r\n\r\n//update\r\nfor (i=0; i<88; i+=1) {\r\n    wj = peek(wm, i);\r\n    wj_prev = peek(wm_prev, i);\r\n    poke(wm_prev2, wj_prev, i);\r\n    poke(wm_prev, wj, i);\r\n}\r\nfb_prev2 = fb_prev1;\r\nfb_prev1 = f_b;\r\n\r\nout1 = w;\r\nout2 = q_iL;\r\nout3 = q_iR;\r\nout4 = qtot;\r\nout5 = F_val;\r\nout6 = f_b;\r\nout7 = v_b;\r\nout8 = b_over_a0;\r\n",
                                     "fontface": 0,
                                     "fontname": "<Monospaced>",
                                     "fontsize": 12.0,
@@ -1037,15 +1138,22 @@
                             },
                             {
                                 "patchline": {
+                                    "destination": [ "obj-3", 0 ],
+                                    "order": 0,
+                                    "source": [ "obj-78", 0 ]
+                                }
+                            },
+                            {
+                                "patchline": {
                                     "destination": [ "obj-79", 0 ],
-                                    "order": 1,
+                                    "order": 2,
                                     "source": [ "obj-78", 0 ]
                                 }
                             },
                             {
                                 "patchline": {
                                     "destination": [ "obj-81", 0 ],
-                                    "order": 0,
+                                    "order": 1,
                                     "source": [ "obj-78", 0 ]
                                 }
                             },
@@ -1075,15 +1183,7 @@
                             },
                             {
                                 "patchline": {
-                                    "destination": [ "obj-3", 0 ],
-                                    "order": 1,
-                                    "source": [ "obj-83", 0 ]
-                                }
-                            },
-                            {
-                                "patchline": {
                                     "destination": [ "obj-87", 0 ],
-                                    "order": 0,
                                     "source": [ "obj-83", 0 ]
                                 }
                             },
@@ -1199,7 +1299,7 @@
                             }
                         ]
                     },
-                    "patching_rect": [ 154.34782314300537, 649.9999876022339, 36.0, 22.0 ],
+                    "patching_rect": [ 66.12903273105621, 649.9999876022339, 362.90322840213776, 22.0 ],
                     "text": "gen~",
                     "varname": "gen~_AB"
                 }
@@ -1213,31 +1313,9 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 31.14754009246826, 285.24589347839355, 206.55737113952637, 22.0 ]
-                }
-            },
-            {
-                "box": {
-                    "attr": "L",
-                    "id": "obj-28",
-                    "maxclass": "attrui",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 263.9344186782837, 272.131139755249, 150.0, 22.0 ]
-                }
-            },
-            {
-                "box": {
-                    "attr": "mu",
-                    "id": "obj-29",
-                    "maxclass": "attrui",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 298.5185087323189, 326.6666559576988, 164.0625, 22.0 ]
+                    "patching_rect": [ 34.99999666213989, 284.999972820282, 206.55737113952637, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 299.9999713897705, 125.999990940094, 209.99997997283936, 22.0 ]
                 }
             },
             {
@@ -1249,7 +1327,9 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 278.51850938796997, 299.25924944877625, 171.31147480010986, 22.0 ]
+                    "patching_rect": [ 278.51850938796997, 299.25924944877625, 171.31147480010986, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 519.9999504089355, 125.999990940094, 206.24998033046722, 22.0 ]
                 }
             },
             {
@@ -1261,19 +1341,9 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 10.769231796264648, 260.65573024749756, 150.0, 22.0 ]
-                }
-            },
-            {
-                "box": {
-                    "attr": "tension",
-                    "id": "obj-35",
-                    "maxclass": "attrui",
-                    "numinlets": 1,
-                    "numoutlets": 1,
-                    "outlettype": [ "" ],
-                    "parameter_enable": 0,
-                    "patching_rect": [ 319.25924879312515, 351.8518403172493, 150.0, 22.0 ]
+                    "patching_rect": [ 14.999998569488525, 261.2499750852585, 150.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 299.9999713897705, 94.999990940094, 209.99997997283936, 22.0 ]
                 }
             },
             {
@@ -1285,7 +1355,21 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "parameter_enable": 0,
-                    "patching_rect": [ 53.4482786655426, 309.24589347839355, 150.0, 22.0 ]
+                    "patching_rect": [ 53.4482786655426, 309.24589347839355, 150.0, 22.0 ],
+                    "presentation": 1,
+                    "presentation_rect": [ 519.9999504089355, 94.999990940094, 206.24998033046722, 22.0 ]
+                }
+            },
+            {
+                "box": {
+                    "attr": "f0",
+                    "id": "obj-36",
+                    "maxclass": "attrui",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 278.51850938796997, 268.74997437000275, 150.0, 22.0 ]
                 }
             }
         ],
@@ -1294,6 +1378,12 @@
                 "patchline": {
                     "destination": [ "obj-76", 0 ],
                     "source": [ "obj-1", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-14", 0 ],
+                    "source": [ "obj-11", 0 ]
                 }
             },
             {
@@ -1334,6 +1424,32 @@
             },
             {
                 "patchline": {
+                    "destination": [ "obj-11", 1 ],
+                    "source": [ "obj-21", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-11", 0 ],
+                    "order": 1,
+                    "source": [ "obj-23", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-12", 0 ],
+                    "order": 0,
+                    "source": [ "obj-23", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "source": [ "obj-24", 0 ]
+                }
+            },
+            {
+                "patchline": {
                     "destination": [ "obj-10", 0 ],
                     "source": [ "obj-25", 0 ]
                 }
@@ -1346,14 +1462,26 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-76", 0 ],
-                    "source": [ "obj-28", 0 ]
+                    "destination": [ "obj-3", 0 ],
+                    "source": [ "obj-27", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-76", 0 ],
+                    "destination": [ "obj-39", 0 ],
                     "source": [ "obj-29", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-4", 0 ],
+                    "source": [ "obj-31", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-36", 0 ],
+                    "source": [ "obj-32", 0 ]
                 }
             },
             {
@@ -1371,7 +1499,7 @@
             {
                 "patchline": {
                     "destination": [ "obj-76", 0 ],
-                    "source": [ "obj-35", 0 ]
+                    "source": [ "obj-36", 0 ]
                 }
             },
             {
@@ -1419,16 +1547,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-12", 0 ],
-                    "order": 3,
-                    "source": [ "obj-76", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-14", 0 ],
-                    "order": 4,
-                    "source": [ "obj-76", 0 ]
+                    "destination": [ "obj-32", 0 ],
+                    "source": [ "obj-7", 0 ]
                 }
             },
             {
@@ -1439,28 +1559,13 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-2", 0 ],
-                    "order": 0,
+                    "destination": [ "obj-22", 0 ],
                     "source": [ "obj-76", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-3", 0 ],
-                    "order": 2,
-                    "source": [ "obj-76", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-39", 0 ],
-                    "order": 1,
-                    "source": [ "obj-76", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-4", 0 ],
+                    "destination": [ "obj-30", 0 ],
                     "source": [ "obj-76", 1 ]
                 }
             },
