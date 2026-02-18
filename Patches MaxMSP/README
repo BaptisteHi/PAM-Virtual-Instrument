@@ -32,4 +32,25 @@ Grandeur écoutée : vitesse de la table d'harmonie au chevalet.
 -------------------------------------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------------------------
-(4) Violon_
+(4) Violon_interface_virtuelle.maxpat
+Modèle en temps réel relié aux autres modes de contrôle (geste musical et coup d'archet).
+Approximation de la fonction de réflexion à une gaussienne (plus une simple résonance pour le chevalet).
+Filtre la force appliquée au chevalet pour obtenir la vitesse de la table d'harmonie au chevalet.
+
+Choix des paramètres : Fb, vb, x, v0, w_ratio (taux d'élargissement de la gaussienne, proportionnelle à l'amortissement).
+
+Grandeur écoutée : 
+  - vitesse de la corde à l'archet,
+  - vitesse de la corde au chevalet,
+  - position de la corde au chevalet,
+  - force appliquée au chevalet,
+  - vitesse de la table d'harmonie au chevalet.
+
+Modes de jeux : 
+  - manuel : permet un contrôle total sur les paramètres, modélise un archet de longueur infinie,
+  - aller-retour : simule les allées et venues de l'archet sur la corde, s'adapteà la vitesse vb,
+  - jeté, martelé, crescendo : permet de sélectionner les coups d'archet.
+  - interface virtuelle : contrôle avec la tablette graphique.
+
+
+  
