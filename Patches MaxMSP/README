@@ -1,8 +1,35 @@
 IMPLEMENTATION TEMPS REEL DES MODELES DANS MAX/MSP
 
+-------------------------------------------------------------------------------------------------------------------------------
 (1) Clarinette_imp_ray.maxpat : 
 Modèle temps réel de la clarinette. Utilisation de l'impédance de rayonnement pour générer la fonction de réflexion.
 
 Choix des paramètres : gamma, zeta.
 
 Grandeur écoutée : pression rayonnée au pavillon.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(2) Clarinette_guillemain.maxpat :
+Modèle temps réel de la clarinette exploitant l'algorithme de l'article de Guillemain. Considération des pertes 
+le long du résonateur. Fonction de réflexion construire à partir des modes du résonateur. Simulation du rayonnement,
+par approximation monopolaire.
+
+Choix des paramètres : gamma, zeta.
+
+Grandeur écoutée : pression rayonnée au pavillon.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(3) Violon_adm_bridge.maxpat :
+Modèle temps réel du violon. Exploite l'impédance mesurée (article de Vincent Debut) pour générer la fonction 
+de réflexion du côté du chevalet. Utilise une impulsion pour l'autre fonction de réflexion. Filtre la force appliquée
+par la corde au chevalet par l'admittance pour obtenir la vitesse de la table d'harmonie au chevalet.
+
+Choix des paramètres : Fb, vb, x (équivalent de beta), v0 (inversement proportionnelle à la raideur de torsion). 
+
+Grandeur écoutée : vitesse de la table d'harmonie au chevalet.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(4) Violon_
