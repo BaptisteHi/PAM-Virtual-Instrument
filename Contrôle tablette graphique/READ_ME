@@ -1,0 +1,12 @@
+Contrôle tablette graphique : Permet le contrôle des instruments virtuels via contrôleurs externes (clavier midi et tablette graphique Wacom cintiq 16)
+=========================================================
+
+violon_interface_virtuelle.maxpat : Patch Max rassemblant les modèles de violon et clarinette retenus et permettant un contrôle en temps réel via les contrôleurs.
+
+wacom_data_2 : Script python permettant l'intercation avec la tablette graphique, communicant avec le patch Max violon_interface_virtuelle.maxpat.
+
+ri_cello.wav : Fichier contenant la réponse impulsionnelle du violon, nécessaire pour le patch Max violon_interface_virtuelle.maxpat. 
+
+schema_violon.jpg : Schéma de violon nécessaire pour l'interaction avec le modèle de violon via la tablette graphique.
+
+images_cartographies_* : Dossiers contenant les cartographies des différentes notes jouées.
