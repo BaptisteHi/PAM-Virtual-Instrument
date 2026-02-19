@@ -37,6 +37,10 @@ Modèle en temps réel relié aux autres modes de contrôle (geste musical et co
 Approximation de la fonction de réflexion à une gaussienne (plus une simple résonance pour le chevalet).
 Filtre la force appliquée au chevalet pour obtenir la vitesse de la table d'harmonie au chevalet.
 
+===============================================================================================================================
+Nécessite la réponse impulsionnelle ri_cello.wav
+===============================================================================================================================
+
 Choix des paramètres : Fb, vb, x, v0, w_ratio (taux d'élargissement de la gaussienne, proportionnelle à l'amortissement).
 
 Grandeur écoutée : 
