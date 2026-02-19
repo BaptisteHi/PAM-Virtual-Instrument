@@ -15,5 +15,6 @@ Projet d'application musicale du Master ATIAM : Conception d'instruments auto-os
 
 <ins> Liens utiles </ins>
 
-Tutoriel vidéo d'utilisationde l'instrument virtuel : () \n
+Tutoriel vidéo d'utilisationde l'instrument virtuel : () 
+
 Papier contenant le détail du projet et des modèles physiques : ()
