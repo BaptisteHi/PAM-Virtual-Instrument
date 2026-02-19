@@ -1,0 +1,31 @@
+READ ME - Audios
+
+Ce dossier répertorie les sons synthétisés par les différents modèles physiques. Tous les sons sont issus des modèles Max/MSP. 
+
+APPELLATIONS DES FICHIERS :
+
+Clarinette : 
+    - "...clarinette_imp_ray..."    :   modèle prenant en compte l'impédance de rayonnement
+                                        dans le calcul de la fonction de réflexion
+                                        (dans le rapport, résonateur (a)),
+    - "...clarinette_guillemain..." :   modèle issu de l'article de Guillemain 
+                                        (dans le rapport, résonateur (b) : avec pertes, 
+                                        sans rayonnement).
+Violon : 
+    - "...bow_strokes..."           :   modèle utilisant l'approximation à une gaussienne
+                                        pour la fonction de réflexion + une seule résonance pour le chevalet.
+                                        filtrage final par l'admittance réelles au chevalet.
+                                        Utilise les enveloppes de force et de vitesse.
+    - "..violon..."                 :   modèle utilisant l'admittance réelle pour le calcul
+                                        de la fonction de réflexion. 
+                                        filtrage final par l'admittance réelle du chevalet.
+
+APPELLATION DES PARAMETRES :
+    - "L"   :   longeur du résonateur,
+    - "g"   :   paramètre gamma, pression dans la bouche adimensionnée,
+    - "z"   :   paramètre zeta, ouverture d'anche adimensionnée,
+    - "b"   :   paramètre beta, rapport de longueur de la corde de part et d'autre de l'archet 
+                (décrit la position de l'archet),
+    - "f"   :   paramètre Fb, force normale appliquée sur la corde par l'archet,
+    - "v"   :   paramètre vb, vitesse transverse de l'archet.
+

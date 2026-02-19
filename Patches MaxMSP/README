@@ -1,0 +1,60 @@
+IMPLEMENTATION TEMPS REEL DES MODELES DANS MAX/MSP
+
+-------------------------------------------------------------------------------------------------------------------------------
+(1) Clarinette_imp_ray.maxpat : 
+Modèle temps réel de la clarinette. Utilisation de l'impédance de rayonnement pour générer la fonction de réflexion.
+
+Choix des paramètres : gamma, zeta.
+
+Grandeur écoutée : pression rayonnée au pavillon.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(2) Clarinette_guillemain.maxpat :
+Modèle temps réel de la clarinette exploitant l'algorithme de l'article de Guillemain. Considération des pertes 
+le long du résonateur. Fonction de réflexion construire à partir des modes du résonateur. Simulation du rayonnement,
+par approximation monopolaire.
+
+Choix des paramètres : gamma, zeta.
+
+Grandeur écoutée : pression rayonnée au pavillon.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(3) Violon_adm_bridge.maxpat :
+Modèle temps réel du violon. Exploite l'impédance mesurée (article de Vincent Debut) pour générer la fonction 
+de réflexion du côté du chevalet. Utilise une impulsion pour l'autre fonction de réflexion. Filtre la force appliquée
+par la corde au chevalet par l'admittance pour obtenir la vitesse de la table d'harmonie au chevalet.
+
+Choix des paramètres : Fb, vb, x (équivalent de beta), v0 (inversement proportionnelle à la raideur de torsion). 
+
+Grandeur écoutée : vitesse de la table d'harmonie au chevalet.
+-------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------
+(4) Violon_interface_virtuelle.maxpat :
+Modèle en temps réel relié aux autres modes de contrôle (geste musical et coup d'archet).
+Approximation de la fonction de réflexion à une gaussienne (plus une simple résonance pour le chevalet).
+Filtre la force appliquée au chevalet pour obtenir la vitesse de la table d'harmonie au chevalet.
+
+===============================================================================================================================
+Nécessite la réponse impulsionnelle ri_cello.wav
+===============================================================================================================================
+
+Choix des paramètres : Fb, vb, x, v0, w_ratio (taux d'élargissement de la gaussienne, proportionnelle à l'amortissement).
+
+Grandeur écoutée : 
+  - vitesse de la corde à l'archet,
+  - vitesse de la corde au chevalet,
+  - position de la corde au chevalet,
+  - force appliquée au chevalet,
+  - vitesse de la table d'harmonie au chevalet.
+
+Modes de jeux : 
+  - manuel : permet un contrôle total sur les paramètres, modélise un archet de longueur infinie,
+  - aller-retour : simule les allées et venues de l'archet sur la corde, s'adapteà la vitesse vb,
+  - jeté, martelé, crescendo : permet de sélectionner les coups d'archet.
+  - interface virtuelle : contrôle avec la tablette graphique.
+
+
+  
