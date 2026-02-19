@@ -1,6 +1,7 @@
 # Instruments de musique virtuels
-* *Julien DE BOLLIVIER, Julien VERSTRAETE, Coline GIRARD, Baptiste HILAIRE,
-Lalie HOUDRY et Baptiste LE BOULCH* *
+
+*Julien DE BOLLIVIER, Julien VERSTRAETE, Coline GIRARD, Baptiste HILAIRE,
+Lalie HOUDRY et Baptiste LE BOULCH*
 
 Projet d'application musicale du Master ATIAM : Conception d'instruments auto-oscillants virtuels à partie de modèles physiques, dotés de dispositifs de contrôle en temps réel. 
 
@@ -14,5 +15,5 @@ Projet d'application musicale du Master ATIAM : Conception d'instruments auto-os
 
 <ins> Liens utiles </ins>
 
-Tutoriel vidéo d'utilisationde l'instrument virtuel : ()
+Tutoriel vidéo d'utilisationde l'instrument virtuel : () \n
 Papier contenant le détail du projet et des modèles physiques : ()
